@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+/*import logo from './logo.svg';*/
 import './App.css';
+import Navbar from './componenet/Navbar';
+import About from './componenet/About';
+/*import TextFrom from './componenet/TextFrom';*/
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    {}
+    <Navbar title="TextUtils" />
+    <div
+    className="container my-3">
+     {/*<TextFrom heading="Enter The Text Analyze Below"/> */}
+     <About></About>
     </div>
+    </>
   );
 }
 
