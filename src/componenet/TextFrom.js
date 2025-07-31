@@ -27,6 +27,20 @@ export default function TextFrom(props) {
         //console.log("on Change");
         setText(event.target.value);
     }
+
+    const handleCopy = () => {
+      console.log("I am copy");
+      var text = document.getElementById("mybox");
+      text.select();
+      text.setSelectionRang(0,9999);
+      navigator.clipboard.writeText(text.value);
+
+    }
+
+    const handleExtraSpace = () => {
+      let newText = text.split (/[]+/);
+      setText(newText.join(" "))
+    }
     const [text, setText] = useState('Enter text here2');
     // text = "new text"; // Wrong way to change the state
     // setText = "new text"; // Correct way to change the state
@@ -39,6 +53,8 @@ export default function TextFrom(props) {
   <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase </button>
   <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to Lowercase </button>
   <button className="btn btn-primary mx-2" onClick={handleCleartext}> Cleartext </button>
+  <button className="btn btn-primary mx-2" onClick={handleCopy}> Copy Text </button>
+  <button className="btn btn-primary mx-2" onClick={handleExtraSpace}> Remove Extra  Space </button>
 </div>
 <div className="container my-2">
 <h1>Your text summary</h1>
