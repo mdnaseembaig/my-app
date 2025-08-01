@@ -38,7 +38,7 @@ export default function TextFrom(props) {
     }
 
     const handleExtraSpace = () => {
-      let newText = text.split (/[]+/);
+      let newText = text.split (/[ ]+/);
       setText(newText.join(" "))
     }
     const [text, setText] = useState('Enter text here2');
@@ -67,4 +67,3 @@ export default function TextFrom(props) {
 </>
   )
 }
-
