@@ -6,32 +6,46 @@ export default function TextFrom(props) {
         //console.log("Uppercase Was clicked" + text);
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert("Converted to UpperCase!", "Succes");
     }
 
      const handleLoClick = ()=>{
        // console.log("Lowercase Was clicked" + text);
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert("Converted to lowerCase!", "Succes");
      }
 
      
 
      const handleCleartext = ()=>{
        // console.log("Clearcase Was clicked" + text);
-        let newText = ''();
+        let newText = '';
         setText(newText)
+        props.showAlert("Remove to ClearText!", "Succes");
+        
+        
      }
 
 
     const handleOnChange = (event)=>{
         //console.log("on Change");
-        setText(event.target.value);
+        setText(event.target.value)
+        
     }
 
-   
+   const handleCopy = () => {
+    console.log("I am Copy");
+    var text = document.getElementById("mybox");
+    text.select();
+    text.setSelectionRang(0, 9999);
+    navigator.clipboard.writeText(text.value);
+    props.showAlert("Copied to Clipboard!", "Success");
+
+   }
 
    
-    const [text, setText] = useState('Enter Text Here');
+    const [text, setText] = useState('');
     // text = "new text"; // Wrong way to change the state
     // setText = "new text"; // Correct way to change the state
   return (
@@ -44,7 +58,8 @@ export default function TextFrom(props) {
      Color: props.mode === 'dark' ? 'white' : 'black'}} id="mybox" rows="8"></textarea>
   <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to Uppercase </button>
   <button className="btn btn-primary mx-2" onClick={handleLoClick}>Convert to Lowercase </button>
-  <button className="btn btn-primary mx-2" onClick={handleCleartext}> Cleartext </button>
+  <button className="btn btn-primary mx-3" onClick={handleCleartext}>Cleartext </button>
+  <button className="btn btn-primary mx-3" onClick={handleCopy}>copy Text</button>
   
 </div>
 <div className="container my-3" style={{Color: props.mode === 'dark' ? 'white' : 'black'}}>
