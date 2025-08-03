@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mdnaseembaig.github.io/my-app/static/css/main.f855e6bc.css",
+    "main.js": "/mdnaseembaig.github.io/my-app/static/js/main.b98251f0.js",
+    "static/js/453.96453769.chunk.js": "/mdnaseembaig.github.io/my-app/static/js/453.96453769.chunk.js",
+    "index.html": "/mdnaseembaig.github.io/my-app/index.html",
+    "main.f855e6bc.css.map": "/mdnaseembaig.github.io/my-app/static/css/main.f855e6bc.css.map",
+    "main.b98251f0.js.map": "/mdnaseembaig.github.io/my-app/static/js/main.b98251f0.js.map",
+    "453.96453769.chunk.js.map": "/mdnaseembaig.github.io/my-app/static/js/453.96453769.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f855e6bc.css",
+    "static/js/main.b98251f0.js"
+  ]
+}
