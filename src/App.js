@@ -2,7 +2,16 @@ import { useState } from 'react';
 import './App.css';
 import Navbar from './componenet/Navbar'; // ✅ Make sure spelling of 'componenet' matches folder name
 import TextFrom from './componenet/TextFrom';
+import About from './componenet/About';
+//import React, { useState } from 'react';
 import Alert from './componenet/Alert';
+
+import {
+  BrowserRouter as Router, 
+  Switch,
+  Route,
+} from "react-router-dom";
+
 
 function App() {
   const [mode, setMode] = useState('light'); // ✅ dark mode default
@@ -21,9 +30,9 @@ function App() {
   
 
   const toggleMode = () =>{
-    if(mode === 'light'){
+    if(mode === 'light') {
       setMode  ('dark');
-      document.body.style.background = 'grey';
+      document.body.style.backgroundColor = 'grey';
       showAlert("Dark mode has been Enable", "successed");
       document.title = 'TextUtils - Dark Mode';
       setInterval(() => {
@@ -42,12 +51,30 @@ function App() {
   }
   return (
     <>
+    {/*<Navbar title="Texttitle" aboutText="About TextUtils" ></Navbar>*/}
+    <Router>
       <Navbar title="TextUtils" mode={mode}toggleMode={toggleMode} />
       <Alert alert={alert}></Alert>
       <div className="container my-3">
-        <TextFrom showAlert={showAlert} heading="Enter the text to Analyze" mode={mode} />
-      </div>
-    </>
+        <Switch>
+         
+         {/* /users --> Component 1
+          /users/home --> --> Component 2 */}
+          <Route exact path="/about"> 
+            <About />
+          </Route>
+          
+          <Route exact path="/">
+            <TextFrom showAlert={showAlert} heading="Enter the text to Analyze" mode={mode} />
+          </Route>
+        </Switch>
+        </div>
+        </Router>
+      {/*<About></About>*/}
+     
+    
+     
+     </>
   );
 }
 
