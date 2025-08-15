@@ -21,26 +21,33 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+              <Link className="nav-link " aria-current="page" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link active " aria-current="page" to="/">About</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/about">{props.aboutText}</Link>
             </li>
           </ul>
-          <div className="d-flex">
-            <div className="bg-primary rounded mx2" onClick={''} style={{height: '30px', width: '30px'}}></div>
-
-          </div>
-          <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+    <div className="d-flex gap-2">
+  <div className="bg-primary rounded" onClick={()=>{props.toggleMode('primary')}} style={{height: '30px', width: '30px', cursor: 'pointer'}}></div>
+  <div className="bg-danger rounded" onClick={()=>{props.toggleMode('danger')}} style={{height: '30px', width: '30px', cursor: 'pointer'}}></div>
+  <div className="bg-warning rounded" onClick={()=>{props.toggleMode('warning')}} style={{height: '30px', width: '30px', cursor: 'pointer'}}></div>
+  <div className="bg-success rounded" onClick={()=>{props.toggleMode('success')}} style={{height: '30px', width: '30px', cursor: 'pointer'}}></div>
+  <div className="bg-dark rounded" onClick={()=>{props.toggleMode('dark')}} style={{height: '30px', width: '30px', cursor: 'pointer'}}></div>
+  <div className="bg- rounded" onClick={()=>{props.toggleMode('light')}} style={{height: '30px', width: '30px', cursor: 'pointer'}}></div>
+</div>
+         {/*  <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
             <input 
               className="form-check-input" 
-              onClick={props.toggleMode} 
+              onClick={()=>{props.toggleMode(null)}} 
               type="checkbox" 
               id="flexSwitchCheckDefault"/>
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
               {props.mode === 'light' ? 'Enable Dark Mode' : 'Disable Dark Mode'}
             </label>
-          </div>
+          </div> */}
         </div>
       </div>
     </nav>

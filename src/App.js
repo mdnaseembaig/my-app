@@ -27,9 +27,19 @@ function App() {
     }, 1500);
 
   }
+
+  const removeBodyClasses =()=>{
+    document.body.classList.remove('bg-light')
+    document.body.classList.remove('bg-classes')
+    document.body.classList.remove('bg-dark')
+    document.body.classList.remove('bg-success')
+  }
   
 
-  const toggleMode = () =>{
+  const toggleMode = (cls) =>{
+    removeBodyClasses();
+    console.log(cls)
+    document.body.classList.add('bg-'+cls)
     if(mode === 'light') {
       setMode  ('dark');
       document.body.style.backgroundColor = 'grey';
@@ -53,7 +63,7 @@ function App() {
     <>
     {/*<Navbar title="Texttitle" aboutText="About TextUtils" ></Navbar>*/}
     <Router>
-      <Navbar title="TextUtils" mode={mode}toggleMode={toggleMode} />
+      <Navbar title="TextUtils" mode={mode}toggleMode={toggleMode} key={new Date()} />
       <Alert alert={alert}></Alert>
       <div className="container my-3">
         <Switch>
@@ -79,3 +89,8 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
