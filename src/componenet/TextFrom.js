@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 export default function TextFrom(props) {
 
+
   const [text, setText] = useState('');
 
   const handleUpClick = () => {
@@ -24,8 +25,9 @@ export default function TextFrom(props) {
   const handleCopy = () => {
     const textBox = document.getElementById("mybox");
     textBox.select();
-    textBox.setSelectionRange(0, 9999); // ✅ correct spelling
+    // ✅ correct spelling
     navigator.clipboard.writeText(textBox.value);
+    document.getSelection().removeAllRanges();
     props.showAlert("Copied to Clipboard!", "Success");
   };
 
@@ -60,7 +62,7 @@ export default function TextFrom(props) {
           <p>{text.trim().split(/\s+/).filter(Boolean).length} words and {text.length} characters</p>
           <p>{0.008 * text.trim().split(/\s+/).filter(Boolean).length} Minutes read</p>
           <h2>Preview</h2>
-          <p>{text.length > 0 ? text : "Enter something in the textbox above to preview it here"}</p>
+          <p>{text.length > 0 ? text : "Nothing To Preview!"}</p>
         </div>
       </div>
     </>

@@ -61,11 +61,11 @@ function App() {
          {/* /users --> Component 1
           /users/home --> --> Component 2 */}
           <Route exact path="/about"> 
-            <About />
+            <About mode={mode} />
           </Route>
           
           <Route exact path="/">
-            <TextFrom showAlert={showAlert} heading="Enter the text to Analyze" mode={mode} />
+            <TextFrom showAlert={showAlert} heading="Try TextUtile- Word counter Character counter, Remove extra Spaces" mode={mode} />
           </Route>
         </Switch>
         </div>
